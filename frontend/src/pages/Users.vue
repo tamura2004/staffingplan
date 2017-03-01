@@ -28,7 +28,7 @@
           .card.card-inverse.card-danger.mb-3
             .card-block.p-2
               p.mb-0 042073
-              h5 山田太郎
+              h5.mb-1 山田太郎
               p.mb-0 ▲0.31
         .col-2(v-for="i in 8")
           .card.card-inverse.card-warning.mb-3
@@ -68,6 +68,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
+body
+  background-color black
+  
 h5
   font-weight bold
   text-align center
@@ -77,6 +80,10 @@ p
   text-align center
   font-size 12px
 
+.card-inverse
+  h5, p
+    color white
+
 .card
-  opacity 0.8
+  opacity 0.9
 </style>
