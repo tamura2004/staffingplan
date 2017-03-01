@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  name: MyString
+  dept: one
+  group: one
+  job: one
+  team: one
+  smonth: MyString
+  emonth: MyString
+
+two:
+  number: MyString
+  name: MyString
+  dept: two
+  group: two
+  job: two
+  team: two
+  smonth: MyString
+  emonth: MyString
