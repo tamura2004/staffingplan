@@ -11,15 +11,15 @@
             | &nbsp;
             icon(name="caret-right")
         .card-block
-          h5 山田太郎
+          h5 {{ users[userId].name }}
         table.table
           tbody
             tr
               td: strong 合計
-              td 1.20
+              td {{ userPlanTotal.toFixed(2) }}
             tr.table-danger
               td: strong 過不足
-              td +0.20
+              td {{ (1 - userPlanTotal).toFixed(2) }}
 
     .col-9
       table.table
@@ -30,21 +30,47 @@
             th 稼働予定（人月）
             th 操作
         tbody
-          tr(v-for="i in 7")
-            td 201703011201-00-a
-            td 全自動餅つき機の回転数増強
-            td: input.form-control.form-control-sm(type="text")
-            td: button.btn.btn-danger.btn-sm(type="button"): strong 削除
-      button.btn.btn-primary(type="button"): strong 案件追加
+          tr(v-for="userPlan in userPlans")
+            td {{ projects[userPlan.projectId].number }}
+            td {{ projects[userPlan.projectId].name }}
+            td
+              input.form-control.form-control-sm(type="number",step="0.1",v-model.number="userPlan.work")
+            td
+              button.btn.btn-danger.btn-sm(type="button")
+                strong 削除
+
+      button.btn.btn-primary(type="button",@click="selectPlan")
+        strong 案件追加
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'hello',
-  props: ['user_id'],
+  props: ['userId'],
+  methods: {
+    selectPlan () {
+      this.$router.push({name: 'SelectProject', params: { setPlan: this.setPlan }})
+    },
+    setPlan (projectId) {
+      console.log(this.userPlans)
+      this.userPlans.push({userId: this.userId, projectId: projectId, work: 0})
+      console.log(this.userPlans)
+    }
+  },
+  computed: {
+    _userPlans () {
+      return this.plans.filter((p) => p.userId === this.userId)
+    },
+    userPlanTotal () {
+      return this.userPlans.reduce((a, b) => a + b.work, 0)
+    },
+    ...mapGetters(['users', 'plans', 'projects'])
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      userPlans: []
     }
   }
 }

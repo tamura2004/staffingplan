@@ -10,14 +10,15 @@ export default new Router({
   routes: [
     {
       name: 'UserProjects',
-      path: '/user/:user_id/projects',
+      path: '/user/:userId/projects',
       component: UserProjects,
       props: true
     },
     {
       name: 'SelectProject',
       path: '/projects/select',
-      component: SelectProject
+      component: SelectProject,
+      props: true
     },
     {
       name: 'Users',
