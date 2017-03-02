@@ -13,6 +13,14 @@
             td(style="text-align: center"): button.btn.btn-secondary.btn-sm(type="button"): strong 選択
             td.pl-3 201703011201-1234
             td.pl-3 全自動餅つき機の回転数増強
+          tr
+            td(style="text-align: center"): button.btn.btn-primary.btn-sm(type="button"): strong 保存
+            td: input(type="text",value="201703011201-1234")
+            td: input(type="text",value="全自動餅つき機の回転数増強")
+      .alert.alert-danger(role="alert")
+        strong 重複エラー
+        span プロジェクト番号が重複しました
+
       button.btn.btn-primary(type="button"): strong 案件追加
 
 </template>
@@ -38,5 +46,8 @@ h5
 
 tr > th
   text-align center
+
+td
+  vertical-align center
 
 </style>
