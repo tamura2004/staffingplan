@@ -5,8 +5,21 @@ Vue.use(Vuex)
 // import router from '../router'
 // import http from './axios'
 
+class Project {
+  constructor (id, number, name) {
+    this.id = id
+    this.number = number
+    this.name = name
+  }
+}
+
 import {
-  SAVE_PROJECT
+  // NEW_PROJECT,
+  // CREATE_PROJECT,
+  // UPDATE_PROJECT,
+  // DELETE_PROJECT,
+  SAVE_PROJECT,
+  CREATE_PLAN
 } from './mutation-types'
 
 const state = {
@@ -39,10 +52,10 @@ const state = {
     { id: 4, number: 'e567890', name: '織田 吾郎', dept_id: 1, group_id: 2 }
   ],
   projects: [
-    { id: 0, number: '201703011930-00-01', name: '食品衛生安全法に伴う社内ルール整備' },
-    { id: 1, number: '201703021730-00-02', name: 'インフルエンザ流行に伴う自宅待機命令' },
-    { id: 2, number: '201703031830-00-03', name: '三世代住宅の安全性検証実験' },
-    { id: 3, number: '201703111630-00-04', name: '介護休暇の制定に伴う補助金算定ツールの提供' }
+    new Project(0, '201703011930-00-01', '食品衛生安全法に伴う社内ルール整備'),
+    new Project(1, '201703021730-00-02', 'インフルエンザ流行に伴う自宅待機命令'),
+    new Project(2, '201703031830-00-03', '三世代住宅の安全性検証実験'),
+    new Project(3, '201703111630-00-04', '介護休暇の制定に伴う補助金算定ツールの提供')
   ],
   plans: []
 }
@@ -61,12 +74,20 @@ const getters = {
 const actions = {
   [SAVE_PROJECT] ({ commit }, project) {
     commit(SAVE_PROJECT, project)
+  },
+
+  [CREATE_PLAN] ({ commit }, plan) {
+    commit(CREATE_PLAN, plan)
   }
 }
 
 const mutations = {
   [SAVE_PROJECT] (state, project) {
     state.projects.push(Object.assign({}, project))
+  },
+
+  [CREATE_PLAN] (state, plan) {
+    state.plans.push(plan)
   }
 }
 

@@ -12,6 +12,10 @@ Vue.component('icon', Icon)
 
 Vue.config.productionTip = false
 
+Vue.filter('decimal', function (value) {
+  return value.toFixed(2)
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

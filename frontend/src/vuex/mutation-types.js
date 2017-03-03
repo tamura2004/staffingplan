@@ -1,1 +1,8 @@
+export const NEW_PROJECT = 'NEW_PROJECT'
+export const CREATE_PROJECT = 'CREATE_PROJECT'
+export const UPDATE_PROJECT = 'UPDATE_PROJECT'
+export const DELETE_PROJECT = 'DELETE_PROJECT'
 export const SAVE_PROJECT = 'SAVE_PROJECT'
+
+export const CREATE_PLAN = 'CREATE_PLAN'
+

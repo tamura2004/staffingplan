@@ -1,8 +1,13 @@
 <template lang="pug">
 .container
   .row
-    .col-8.offset-2
-      h4 案件を選択して下さい
+    .col-3
+      .card
+        .card-block
+          p 案件を右の一覧から選択して下さい。一覧に案件がない場合下のボタンから新規登録してください。
+          button.btn.btn-primary(type="button", @click="new_project", v-if="!edit.project")
+            strong 新規案件登録
+    .col-9
       table.table.table-sm.table-bordered
         thead.bg-inverse.text-white
           tr
@@ -30,8 +35,6 @@
       //-   strong 重複エラー
       //-   span プロジェクト番号が重複しました
 
-      button.btn.btn-primary(type="button", @click="new_project", v-if="!edit.project")
-        strong 案件追加
 
 </template>
 
