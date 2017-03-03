@@ -6,8 +6,8 @@ Vue.use(Vuex)
 // import http from './axios'
 
 class Project {
-  constructor (id, number, name) {
-    this.id = id
+  constructor (number, name) {
+    this.id = Math.floor(Math.random() * 1000000)
     this.number = number
     this.name = name
   }
@@ -52,10 +52,10 @@ const state = {
     { id: 4, number: 'e567890', name: '織田 吾郎', dept_id: 1, group_id: 2 }
   ],
   projects: [
-    new Project(0, '201703011930-00-01', '食品衛生安全法に伴う社内ルール整備'),
-    new Project(1, '201703021730-00-02', 'インフルエンザ流行に伴う自宅待機命令'),
-    new Project(2, '201703031830-00-03', '三世代住宅の安全性検証実験'),
-    new Project(3, '201703111630-00-04', '介護休暇の制定に伴う補助金算定ツールの提供')
+    new Project('201703011930-00-01', '食品衛生安全法に伴う社内ルール整備'),
+    new Project('201703021730-00-02', 'インフルエンザ流行に伴う自宅待機命令'),
+    new Project('201703031830-00-03', '三世代住宅の安全性検証実験'),
+    new Project('201703111630-00-04', '介護休暇の制定に伴う補助金算定ツールの提供')
   ],
   plans: []
 }

@@ -22,11 +22,9 @@
               td: strong 過不足
               td {{ 1 - userPlanTotal | decimal }}
 
-        button.btn.btn-primary(type="button",@click="selectPlan")
-          strong 担当案件追加
 
     .col-9
-      table.table.table-sm.table-bordered
+      table.table.table-bordered
         thead.bg-inverse.text-white
           tr
             th 案件管理番号
@@ -35,9 +33,9 @@
             th 操作
         tbody
           tr(v-for="userPlan in userPlans")
-            td {{ projects[userPlan.projectId].number }}
-            td {{ projects[userPlan.projectId].name }}
-            td
+            td {{ projects.find(function(p){return p.id == userPlan.projectId}).number }}
+            td {{ projects.find(function(p){return p.id == userPlan.projectId}).name }}
+            td.p-1
               input.form-control.form-control-sm(
                 type="number",
                 step="0.1",
@@ -46,6 +44,9 @@
             td
               button.btn.btn-danger.btn-sm(type="button")
                 strong 削除
+      hr
+      button.btn.btn-primary(type="button",@click="selectPlan")
+        strong 担当案件追加
 </template>
 
 <script>
@@ -87,4 +88,7 @@ export default {
     font-weight bold
     text-align center
 
+input
+  width 96px
+  font-size 24px
 </style>
