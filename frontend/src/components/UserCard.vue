@@ -1,19 +1,19 @@
 <template lang="pug">
-  .card
-    .card-header.bg-inverse.text-white
-      h5.mb-0
-        | ◀︎　2017年3月　▶︎
-    .card-block
-      h5 {{ user.name }}
-
-    table.table
-      tbody
-        tr
-          td: strong 合計
-          td {{ userPlanTotal | decimal }}
-        tr.table-danger
-          td: strong 過不足
-          td {{ 1 - userPlanTotal | decimal }}
+table.table.table-bordered
+  thead.bg-inverse.text-white
+    tr
+      th.text-center(colspan="2") ◀　2017年3月　▶
+  tbody
+    tr
+      td(colspan="2")
+        h5.mb-0.text-center {{ getUserById(userId).name }}
+    tr
+      td.w-50
+        strong 合計
+      td#n.w-50 {{ userPlanTotal | decimal }}
+    tr.table-danger
+      td: strong 過不足
+      td#n {{ 1 - userPlanTotal | decimal }}
 
 </template>
 
@@ -25,9 +25,6 @@ export default {
   props: ['userId'],
   computed: {
     ...mapGetters(['getPlansByUserId', 'getUserById']),
-    user () {
-      return this.getUserById(this.userId)
-    },
     userPlanTotal () {
       let res = 0
       for (const plan of this.getPlansByUserId(this.userId)) {
@@ -48,4 +45,7 @@ export default {
     font-weight bold
     text-align center
 
+#n
+  font-size 24px
+  padding 8px
 </style>

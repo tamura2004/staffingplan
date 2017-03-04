@@ -11,6 +11,12 @@ Vue.component('icon', Icon)
 
 Vue.config.productionTip = false
 
+// Vue.config.errorHandler = function (err, vm, info) {
+//   console.error(err)
+//   console.error(vm)
+//   console.error(info)
+// }
+
 Vue.filter('decimal', function (value) {
   return value.toFixed(2)
 })

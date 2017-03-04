@@ -19,11 +19,28 @@ import {
   CREATE_PLAN
 } from './mutation-types'
 
+import {
+  Dept,
+  Group,
+  Job,
+  Team,
+  User,
+  Project,
+  Plan
+} from './models'
+
 const state = {
   edit: {
     user: null,
     project: null
-  }
+  },
+  depts: [],
+  groups: [],
+  jobs: [],
+  teams: [],
+  users: [],
+  projects: [],
+  plans: []
 }
 
 const getters = {
@@ -36,36 +53,36 @@ const getters = {
   projects: state => state.projects,
   plans: state => state.plans,
 
-  getDeptById: (state, getters) => (id) => {
-    return getters.depts.find(depts => depts.id === id)
+  getDeptById (state, getters) {
+    return (id) => getters.depts.find(dept => id === dept.id) || new Dept()
   },
 
-  getGroupById: (state, getters) => (id) => {
-    return getters.groups.find(groups => groups.id === id)
+  getGroupById (state, getters) {
+    return (id) => getters.groups.find(group => id === group.id) || new Group()
   },
 
-  getTeamById: (state, getters) => (id) => {
-    return getters.teams.find(teams => teams.id === id)
+  getJobById (state, getters) {
+    return (id) => getters.jobs.find(job => id === job.id) || new Job()
   },
 
-  getJobById: (state, getters) => (id) => {
-    return getters.jobs.find(jobs => jobs.id === id)
+  getTeamById (state, getters) {
+    return (id) => getters.teams.find(team => id === team.id) || new Team()
   },
 
-  getUserById: (state, getters) => (id) => {
-    return getters.users.find(users => users.id === id)
+  getUserById (state, getters) {
+    return (id) => getters.users.find(user => id === user.id) || new User()
   },
 
-  getProjectById: (state, getters) => (id) => {
-    return getters.projects.find(projects => projects.id === id)
+  getProjectById (state, getters) {
+    return (id) => getters.projects.find(project => id === project.id) || new Project()
   },
 
-  getPlanById: (state, getters) => (id) => {
-    return getters.plans.find(plans => plans.id === id)
+  getPlanById (state, getters) {
+    return (id) => getters.plans.find(plan => id === plan.id) || new Plan()
   },
 
-  getPlansByUserId: (state, getters) => (userId) => {
-    return getters.plans.filter(plans => plans.user_id === userId)
+  getPlansByUserId (state, getters) {
+    return (userId) => getters.plans.filter(plan => userId === plan.user_id)
   }
 }
 
@@ -133,27 +150,31 @@ const actions = {
 
 const mutations = {
   [LOAD_DEPTS] (state, data) {
-    state.depts = data
+    state.depts = data.map((dept) => new Dept(dept))
   },
 
   [LOAD_GROUPS] (state, data) {
-    state.groups = data
-  },
-
-  [LOAD_TEAMS] (state, data) {
-    state.teams = data
+    state.groups = data.map((group) => new Group(group))
   },
 
   [LOAD_JOBS] (state, data) {
-    state.jobs = data
+    state.jobs = data.map((job) => new Job(job))
+  },
+
+  [LOAD_TEAMS] (state, data) {
+    state.teams = data.map((team) => new Team(team))
   },
 
   [LOAD_USERS] (state, data) {
-    state.users = data
+    state.users = data.map((user) => new User(user))
   },
 
   [LOAD_PROJECTS] (state, data) {
-    state.projects = data
+    state.projects = data.map((project) => new Project(project))
+  },
+
+  [LOAD_PLANS] (state, data) {
+    state.plans = data.map((plan) => new Plan(plan))
   },
 
   [LOAD_PLANS] (state, data) {

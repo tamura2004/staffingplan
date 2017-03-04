@@ -88,8 +88,14 @@ end
 
 PLANS = [
   { id: 0, month: 201703, user_id: 0, project_id: 0, work: 0.3 },
-  { id: 0, month: 201703, user_id: 0, project_id: 1, work: 0.3 },
-  { id: 0, month: 201703, user_id: 0, project_id: 2, work: 0.3 }
+  { id: 1, month: 201703, user_id: 0, project_id: 1, work: 0.4 },
+  { id: 2, month: 201703, user_id: 0, project_id: 2, work: 0.5 },
+  { id: 3, month: 201703, user_id: 1, project_id: 0, work: 0.6 },
+  { id: 4, month: 201703, user_id: 1, project_id: 1, work: 0.7 },
+  { id: 5, month: 201703, user_id: 1, project_id: 2, work: 0.8 },
+  { id: 3, month: 201703, user_id: 2, project_id: 0, work: 0.9 },
+  { id: 4, month: 201703, user_id: 2, project_id: 1, work: 1.0 },
+  { id: 5, month: 201703, user_id: 2, project_id: 2, work: 1.1 }
 ]
 
 PLANS.each do |plan|
