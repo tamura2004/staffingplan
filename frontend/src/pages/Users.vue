@@ -21,7 +21,7 @@
       .card.card-inverse.card-primary.mb-3
         .card-block.p-2
           h5.text-white.mb-0 100%〜120％
-      
+
     .col-10
       .row
         .col-2(v-for="i in 8")
@@ -55,14 +55,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'users',
+  name: 'Users',
   props: ['user_id'],
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+  computed: mapGetters(['users'])
 }
 </script>
 
@@ -70,7 +68,7 @@ export default {
 <style lang="stylus" scoped>
 body
   background-color black
-  
+
 h5
   font-weight bold
   text-align center

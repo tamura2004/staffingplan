@@ -7,8 +7,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.references :group, foreign_key: true
       t.references :job, foreign_key: true
       t.references :team, foreign_key: true
-      t.string :smonth
-      t.string :emonth
+      t.string :start_month
+      t.string :end_month
 
       t.timestamps
     end

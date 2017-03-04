@@ -12,7 +12,9 @@ export default new Router({
       name: 'UserProjects',
       path: '/user/:userId/projects',
       component: UserProjects,
-      props: true
+      props (route) {
+        return { userId: Number(route.params.userId) }
+      }
     },
     {
       name: 'SelectProject',

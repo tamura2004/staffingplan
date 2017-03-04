@@ -1,0 +1,29 @@
+#!/bin/bash
+
+rm /usr/local/include/fakemysql.h
+rm /usr/local/include/fakepq.h
+rm /usr/local/include/fakesql.h
+rm /usr/local/include/itcl.h
+rm /usr/local/include/itcl2TclOO.h
+rm /usr/local/include/itclDecls.h
+rm /usr/local/include/itclInt.h
+rm /usr/local/include/itclIntDecls.h
+rm /usr/local/include/itclMigrate2TclCore.h
+rm /usr/local/include/itclTclIntStubsFcn.h
+rm /usr/local/include/mysqlStubs.h
+rm /usr/local/include/odbcStubs.h
+rm /usr/local/include/pqStubs.h
+rm /usr/local/include/tcl.h
+rm /usr/local/include/tclDecls.h
+rm /usr/local/include/tclOO.h
+rm /usr/local/include/tclOODecls.h
+rm /usr/local/include/tclPlatDecls.h
+rm /usr/local/include/tclThread.h
+rm /usr/local/include/tclTomMath.h
+rm /usr/local/include/tclTomMathDecls.h
+rm /usr/local/include/tdbc.h
+rm /usr/local/include/tdbcDecls.h
+rm /usr/local/include/tdbcInt.h
+rm /usr/local/include/tk.h
+rm /usr/local/include/tkDecls.h
+rm /usr/local/include/tkPlatDecls.h

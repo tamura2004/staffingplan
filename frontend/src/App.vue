@@ -11,7 +11,7 @@
     .navbar-brand 勤務予定
     .navbar-nav
       router-link.nav-item.nav-link(to="/") 担当別
-      router-link.nav-item.nav-link(to="/user/1/projects") 担当明細
+      router-link.nav-item.nav-link(to="/user/0/projects") 担当明細
       router-link.nav-item.nav-link(to="/projects/select") プロジェクト選択
       .nav-item.nav-link 案件別
       .nav-item.nav-link 月別
@@ -23,8 +23,13 @@
 </template>
 
 <script>
+import { INIT_STORE } from '@/vuex/mutation-types'
+
 export default {
-  name: 'app'
+  name: 'app',
+  created () {
+    this.$store.dispatch(INIT_STORE)
+  }
 }
 </script>
 

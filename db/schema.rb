@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 20170228113749) do
   end
 
   create_table "plans", force: :cascade do |t|
-    t.string   "month"
-    t.string   "hour"
+    t.integer  "month"
+    t.decimal  "work",       precision: 3, scale: 2
     t.integer  "user_id"
     t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.index ["project_id"], name: "index_plans_on_project_id"
     t.index ["user_id"], name: "index_plans_on_user_id"
   end
@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 20170228113749) do
   create_table "projects", force: :cascade do |t|
     t.string   "number"
     t.string   "name"
-    t.string   "smonth"
-    t.string   "emonth"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "start_month"
+    t.string   "end_month"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "teams", force: :cascade do |t|
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 20170228113749) do
     t.integer  "group_id"
     t.integer  "job_id"
     t.integer  "team_id"
-    t.string   "smonth"
-    t.string   "emonth"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "start_month"
+    t.string   "end_month"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["dept_id"], name: "index_users_on_dept_id"
     t.index ["group_id"], name: "index_users_on_group_id"
     t.index ["job_id"], name: "index_users_on_job_id"
