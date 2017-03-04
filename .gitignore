@@ -20,9 +20,6 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore seed
-/db/fixtures/*
-
 # Ignore frontend
 .DS_Store
 frontend/node_modules/
