@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "/users/total", to: "users#total"
+
   resources :plans
   resources :projects
   resources :users

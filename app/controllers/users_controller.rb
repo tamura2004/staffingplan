@@ -8,6 +8,35 @@ class UsersController < ApplicationController
     render json: @users
   end
 
+  # GET /users/total
+  def total
+    @users = User.all.map do |user|
+      total = user.plans.sum(:work)
+      color = ""
+      if total <= 0.2
+        color = "btn-danger"
+      elsif total <= 0.5
+        color = "btn-warning"
+      elsif total <= 0.8
+        color = "btn-success"
+      elsif total <= 1.2
+        color = "btn-primary"
+      else
+        color = "btn-danger"
+      end
+
+      {
+        id: user.id,
+        name: user.name,
+        total: total,
+        color: color
+      }
+    end
+
+    render json: @users
+  end
+
+
   # GET /users/1
   def show
     render json: @user
