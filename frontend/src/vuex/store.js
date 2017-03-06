@@ -88,43 +88,43 @@ const getters = {
 
 const actions = {
   [LOAD_DEPTS] ({commit}) {
-    axios.get(`http://localhost:3000/depts`)
+    axios.get('/api/depts')
     .then(r => commit(LOAD_DEPTS, r.data))
     .catch(e => console.log(e))
   },
 
   [LOAD_GROUPS] ({commit}) {
-    axios.get(`http://localhost:3000/groups`)
+    axios.get('/api/groups')
     .then(r => commit(LOAD_GROUPS, r.data))
     .catch(e => console.log(e))
   },
 
   [LOAD_TEAMS] ({commit}) {
-    axios.get(`http://localhost:3000/teams`)
+    axios.get('/api/teams')
     .then(r => commit(LOAD_TEAMS, r.data))
     .catch(e => console.log(e))
   },
 
   [LOAD_JOBS] ({commit}) {
-    axios.get(`http://localhost:3000/jobs`)
+    axios.get('/api/jobs')
     .then(r => commit(LOAD_JOBS, r.data))
     .catch(e => console.log(e))
   },
 
   [LOAD_USERS] ({commit}) {
-    axios.get(`http://localhost:3000/users`)
+    axios.get('/api/users')
     .then(r => commit(LOAD_USERS, r.data))
     .catch(e => console.log(e))
   },
 
   [LOAD_PROJECTS] ({commit}) {
-    axios.get(`http://localhost:3000/projects`)
+    axios.get('/api/projects')
     .then(r => commit(LOAD_PROJECTS, r.data))
     .catch(e => console.log(e))
   },
 
   [LOAD_PLANS] ({commit}) {
-    axios.get(`http://localhost:3000/plans`)
+    axios.get('/api/plans')
     .then(r => commit(LOAD_PLANS, r.data))
     .catch(e => console.log(e))
   },
